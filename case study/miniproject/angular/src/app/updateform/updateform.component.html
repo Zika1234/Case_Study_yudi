@@ -1,0 +1,20 @@
+
+<div id = "update">
+    <h1>Edit Product Details</h1>
+<div class="form-group">
+ 
+  <strong>Id:</strong><input type="number"  [(ngModel)] = "changeId" class="form-control" value = {{showId}}>
+
+
+ <strong>Name:</strong><input type="text" class="form-control" value = {{showName}} [(ngModel)] = "changeName" >
+
+<strong> Description:</strong><input type="text" class="form-control" value = {{showDescription}} [(ngModel)] = "changeDescription" >
+
+ <strong>Price:</strong><input type="number" class="form-control" value = {{showPrice}} [(ngModel)] = "changePrice" >
+
+ <br>
+<button type="button" class="btn btn-info" (click) = "onUpdate()">Update</button><button type="button" class="btn btn-success" (click) = "onTables()">Cancel</button>
+</div>
+
+
+</div>

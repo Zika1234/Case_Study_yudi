@@ -1,0 +1,12 @@
+#update{
+    border: 2px purple solid;
+    width: 600px;
+    height: 400px;
+    padding: 20px;
+    margin-left: 300px;
+    margin-top: 200px;
+}
+
+button{
+    margin-left: 5px;
+}

@@ -1,0 +1,51 @@
+<div class="container">
+ <h1>Welcome To Productlist Application!</h1>
+ <h1>Product List</h1> 
+ <table class="table">
+    <thead>
+      <tr class="success">
+         <!-- <th>Sr</th> -->
+        <th>Id</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th colspan="2">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = 'let pro of showArr|paginate: {  itemsPerPage: 5,
+      currentPage: p1}'>
+         <!-- <td>{{index}}</td>  -->
+        <td>{{pro.id}}</td>
+        <td>{{pro.name}}</td>
+        <td>{{pro.description}}</td>
+        <td>{{pro.price}}</td>
+      <td><button type="button" class="btn btn-danger" (click) = "onDelete(pro.name)">Delete</button></td>   
+        <td><button type="button" class="btn btn-info" (click) = "onUpdateShow(pro.name)">Edit</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="p1 = $event"></pagination-controls>
+  <strong id = "total">Total no of products:{{showArr.length}}</strong>
+  <div id = "btud">
+  <button type="button"  class="btn btn-success" (click) = "onAdd()">Add Product</button>        <button type="button" id = "addProduct" class="btn btn-warning" (click) = "deleteAll()">Delete All</button>
+</div>
+<!-- 
+  
+    <div class="form-group">
+ 
+       Id:<input type="number"  [(ngModel)] = "changeId" class="form-control" value = {{showId}}>
+    
+
+      Name:<input type="text" class="form-control" value = {{showName}} [(ngModel)] = "changeName" >
+
+      Description<input type="text" class="form-control" value = {{showDescription}} [(ngModel)] = "changeDescription" >
+
+      Price<input type="number" class="form-control" value = {{showPrice}} [(ngModel)] = "changePrice" >
+ 
+    <button type="button" class="btn btn-default" (click) = "onUpdate()">Update</button>
+    </div>
+   -->
+  
+
+</div>

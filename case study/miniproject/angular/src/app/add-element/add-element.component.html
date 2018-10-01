@@ -1,0 +1,82 @@
+<!-- <div id = "add">
+
+  <h1>Add Product</h1>
+<div class="form-group">
+ 
+ <strong>Id:</strong><input type="number" id = "pid"  [(ngModel)] = "changeId" class="form-control" value = {{showId}} required>
+
+
+ <strong>Name:</strong> <input type="text" id="iname" class="form-control" value = {{showName}} [(ngModel)] = "changeName" required >
+
+<strong>Description</strong> <input type="text" class="form-control" value = {{showDescription}} [(ngModel)] = "changeDescription" >
+
+<strong>Price</strong><input type="number" class="form-control" value = {{showPrice}} [(ngModel)] = "changePrice" >
+
+<button type="button" class="btn btn-success" (click) = "onAdd()">Add</button>
+<button type="button" class="btn btn-primary" (click) = "onAddToTable()">Bach to the table</button>
+
+
+</div>
+</div> -->
+
+
+<div id = "add">
+ 
+  <div [hidden]= "showAdd">
+    <h1>Add Product</h1>
+    <form name="form" #addForm="ngForm" (ngSubmit)="addForm.form.valid && onAdd(addForm)" >
+    <table class="table table-hover">
+      <!-- <div class="form-group">  -->
+      <tr>
+        <th>ID:</th>
+        <td><input type="number" class="form-control" name="tid" id="tid" #tid="ngModel" [(ngModel)]="addnewId" required  maxlength="4" [ngClass]="{ 'is-invalid': addForm.submitted && tid.invalid }"/>
+            <div *ngIf= "addForm.submitted && tid.invalid" class="invalid-feedback">
+              <div *ngIf="tid.errors.maxlength">ID has maxlength 4</div>
+              <div *ngIf="tid.errors.required">ID is required</div>
+              
+            </div>
+        </td>
+      </tr>
+      <!-- </div> -->
+      <!-- <div class="form-group"> -->
+      <tr>
+        <th>Name:</th>
+        <td><input type="text" class="form-control" id="tname" name="tname" #tname="ngModel" [(ngModel)]="addnewName" [ngClass]="{ 'is-invalid': addForm.submitted && tname.invalid }"required>
+            <div *ngIf="addForm.submitted && tname.invalid" class="invalid-feedback"> 
+              <div *ngIf="tname.errors.required">Name is required</div>
+            </div>
+            </td>
+      </tr>
+      <!-- </div> -->
+      <!-- <div class="form-group"> -->
+      <tr>
+        <th>Description:</th>
+        <td><input type="text" class="form-control" name="tdes" id="tdes" #tdes="ngModel" [(ngModel)]="addnewDescription" [ngClass]="{ 'is-invalid': addForm.submitted && tdes.invalid }" required>
+        <div *ngIf="addForm.submitted && tdes.invalid" class="invalid-feedback"> 
+              <div *ngIf="tdes.errors.required">Description is required</div>
+            </div>
+            </td>
+      </tr>
+      <!-- </div> -->
+      <!-- <div class="form-group"> -->
+      <tr>
+        <th>Price:</th>
+        <td><input type="number" class="form-control" name="tprice" id="tprice" #tprice="ngModel" [(ngModel)]="addnewPrice" [ngClass]="{ 'is-invalid': addForm.submitted && tprice.invalid }" required>
+         <div *ngIf="addForm.submitted && tprice.invalid" class="invalid-feedback"> 
+              <div *ngIf="tprice.errors.required">Price is required</div>
+            </div>
+            </td>
+      </tr>
+      <!-- </div> -->
+      <!-- <div class="form-group"> -->
+      <tr>
+        <td><button type="submit" class="btn btn-primary">Submit</button></td>
+        <td><button type="button" class="btn btn-warning" (click)="onAddToTable(addForm)">Cancel</button></td>
+      </tr>
+      <!-- </div> -->
+    </table>
+    </form>
+  </div>
+</div>
+
+

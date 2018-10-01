@@ -1,0 +1,16 @@
+#add{
+    border: 2px purple solid;
+    width: 600px;
+    height: 500px;
+    padding: 20px;
+    margin-left: 300px;
+    margin-top: 200px;
+}
+
+h1{
+    text-align: center;
+}
+
+button{
+    margin-left: 5px;
+}
